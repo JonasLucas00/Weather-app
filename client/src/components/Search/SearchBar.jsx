@@ -1,25 +1,54 @@
-function SearchBar() {
-    return (<div className="bg-red-300  p-2 m-2 w-[700px] h-[350px] rounded-xl">
-        Inform your city and data bellow
-        <button className="cursor-pointer m-2 border-2 border-black p-2" onClick={async () => {
+import { useState } from "react"
+
+export default function SearchBar({setWeather}){
+    const [city, setCity] = useState('')
+    
+
+        async function fetchData() {
             try {
-                const response = await fetch("http://localhost:3000")
+                
+                if(!city){
+                    console.log('Fill in all fields')
+                    return
 
-                if (!response.ok) {
-                    throw new Error(`Status error: ${response.status}`)
+                } 
 
+            
+                const response = await fetch(`http://localhost:3000/weather?city=${city}`)
+                if(!response.ok){
+                    console.log(`Response ERRor: ${response.status}`)
+                    return
                 }
+    
                 const data = await response.json()
                 console.log(data)
-                return
+                setWeather(data)
+                
+    
             } catch (error) {
-                console.log(`HTTP error: ${error}`)
+                console.log(`HTTP ERRor ${error}`)
                 return
             }
-        }}>Click here</button>
-    </div>
+        }
+    
 
-    )
+    return(<div className="bg-red-300 p-2 m-2 w-[800px] h-[500px] rounded-xl">
+        <input 
+            type="text"
+            className="bg-neutral-200"
+            placeholder="Insert country"
+            value={city}
+            onChange={(e)=>setCity(e.target.value)}
+        />
+        
+         <button
+            className="p-2 m-2 bg-neutral-300 cursor-pointer"
+            onClick={()=>{
+                console.log(city)
+                fetchData()
+            }}
+         >Click me
+         </button>
+
+    </div>)
 }
-
-export default SearchBar

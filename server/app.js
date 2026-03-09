@@ -1,6 +1,7 @@
 import express, { urlencoded } from 'express';
 const app = express();
-import router from './src/routes/testRou.js';
+import testRou from './src/routes/testRou.js';
+import weatherRouter from './src/routes/weatherRouter.js'
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -14,7 +15,9 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use('/', router);
+app.use('/', testRou);
+app.use('/weather', weatherRouter );
+
 
 app.listen(3000, () => {
     console.log(`Server online: http://localhost:3000`)
