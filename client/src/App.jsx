@@ -7,12 +7,13 @@ import { useState } from 'react'
 function App() {
   const [weather, setWeather] = useState(null)
   return (
-    <div className='flex flex-col h-screen'>
+    <div className='flex flex-col min-h-screen bg-gradient-to-b from-slate-900 to-blue-900'>
       <Header />
 
-      <div className='flex justify-around mt-[90px] items-center'>
-        <SearchResult weather = {weather}/>
+
+      <div className='flex flex-col mt-[90px] items-center gap-[90px]' >
         <SearchBar setWeather = {setWeather}/>
+        <SearchResult weather = {weather}/>
       </div>
 
     </div>
