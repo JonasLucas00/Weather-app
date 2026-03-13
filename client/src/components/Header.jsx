@@ -5,7 +5,7 @@ function Header() {
         </div>
 
         <div className="">
-            <button className="mx-2 text-xl text-white/60 hover:text-white transition duration-200">UserIcon</button>
+            <button className="mx-2 text-xl text-white/60 hover:text-white transition duration-200"><i className="fa-solid fa-user text-2xl"></i></button>
             <button className="mx-2 text-xl text-white/60 hover:text-white transition duration-200">Theme</button>
         </div>
     </div>

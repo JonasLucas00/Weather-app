@@ -1,14 +1,21 @@
 function SearchResult({weather}) {
 
     if(!weather) return null
-
+    
     return(
             <div className="g-white/5 border border-white/10 p-6 m-2 min-w-[900px] min-h-[500px] rounded-xl flex flex-col items-center shadow-2xl justify-center mb-8">
                     <h1 className="text-4xl mb-8 font-semibold text-white">
                         Today's weather forecast in {weather.name}
                     </h1>
+
+                    <div className="flex items-center text-white bg-white/10 border border-white/10 p-4 rounded-xl text-center shadow-2xl-2xl text-white mb-8 ">
+                        <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} alt="" className="w-16"/>
+                        <p className="text-xl">{weather.weather[0].description}</p>
+                    </div>
                     
                 <div className="grid grid-cols-2 gap-6 w-full">
+
+                    
 
                         <div className="bg-white/10 border border-white/10 p-4 rounded-xl text-center shadow-2xl-2xl text-white">
                                 <p className="text-lg font-medium"><i className="fa-solid fa-temperature-three-quarters text-xl"></i> Temperature</p>
@@ -22,7 +29,7 @@ function SearchResult({weather}) {
                             
                         <div className="bg-white/10 border border-white/10 p-4 rounded-xl text-center shadow-2xl text-white">
                             <p className="text-lg font-medium">Wind</p>
-                            <p className="text-xl">{weather.wind.speed}</p>
+                            <p className="text-xl">{(weather.wind.speed * 3.6).toFixed(1)}</p>
                         </div>
                             
                         <div className="bg-white/10 border border-white/10 p-4 rounded-xl text-center shadow-2xl text-white">
