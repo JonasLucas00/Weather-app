@@ -1,5 +1,5 @@
 function Header() {
-    return (<div className="flex bg-white/5 border-b border-white/10 justify-between p-4">
+    return (<div className="flex bg-sky-500 border-b border-white/10 justify-between p-4">
         <div>
             <button className="text-xl text-white">Weather</button>
         </div>

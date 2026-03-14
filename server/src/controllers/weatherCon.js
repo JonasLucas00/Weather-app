@@ -1,13 +1,16 @@
 
 async function weatherAPI(req,res){
-    const {city} = req.query
-    console.log(city)
+    // const {city} = req.query
+    // console.log(`Server ${city}`)
+    const {lat,lon} = req.query
+   console.log(`Server ${lat} and ${lon}`)
 
     try {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2d5ed564264c0c7b24775e60ebabfc2b&units=metric`)
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=4858cc40b15097fe38f3ec11e3d78452&units=metric`)
     
       if(!response.ok){
-        throw new Error(`Response ERRor: ${response.status}`)
+        console.log(`Response ERRor: ${response.status}`)
+        return
       }
 
       const data = await response.json();
