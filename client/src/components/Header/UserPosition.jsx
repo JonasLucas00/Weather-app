@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-function UserPosition() {
+function UserPosition({setUserPosition}) {
     let lat
     let lon
     useEffect (()=>{
@@ -43,6 +43,8 @@ function UserPosition() {
                 }
                 const data = await response.json()
                 console.log(data)
+                setUserPosition(data)
+                return
             } catch (error) {
                 console.log(`HTTP error: ${error}`)
                 return
