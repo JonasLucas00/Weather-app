@@ -9,7 +9,7 @@ function App() {
   const [weather, setWeather] = useState(null)
   const [userPosition, setUserPosition] = useState('')
   return (
-    <div className='flex flex-col min-h-screen bg-gradient-to-b from-slate-900 to-blue-900'>
+    <div className='flex flex-col min-h-screen bg-gradient-to-b from-blue-900 to-slate-300'>
       <Header userPosition = {userPosition}/>
       <UserPosition setUserPosition = {setUserPosition}/>
 
