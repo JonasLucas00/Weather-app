@@ -1,8 +1,12 @@
 
-async function weatherAPI(req,res){
-    // const {city} = req.query
-    // console.log(`Server ${city}`)
+async function positionWeatherCon(req,res){
+    
     const {lat,lon} = req.query
+
+    if(!lat || !lon) {
+      return res.status(400).json({error:"lat and lon is required"})
+    }
+    
    console.log(`Server ${lat} and ${lon}`)
 
     try {
@@ -25,4 +29,4 @@ async function weatherAPI(req,res){
     
 }
 
-export default weatherAPI
+export default positionWeatherCon

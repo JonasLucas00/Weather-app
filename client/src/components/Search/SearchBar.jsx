@@ -23,7 +23,6 @@ export default function SearchBar({setWeather}){
                 const data = await response.json()
                 console.log(data)
                 setWeather(data)
-                
     
             } catch (error) {
                 console.log(`HTTP ERRor ${error}`)
@@ -32,7 +31,7 @@ export default function SearchBar({setWeather}){
         }
     
 
-    return(<div className=" p-8 m-2 max-h-screen  rounded-xl flex flex-col items-center ">
+    return(<div className=" p-8 m-2 max-h-screen rounded-xl flex flex-col items-center mt-[200px]">
 
         <div className="flex flex-col bg-white/5 border border-white/10 rounded-2xl shadow-xl w-[700px] py-[100px] px-8 m-4 items-center ">
 

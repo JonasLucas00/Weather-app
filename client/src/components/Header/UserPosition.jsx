@@ -33,9 +33,9 @@ function UserPosition({setUserPosition}) {
         )   
 
         async function positionWeather(lat,lon) {
-            console.log(lat,lon)
+            // console.log(lat,lon)
             try {
-                const response = await fetch(`http://localhost:3000/weather?lat=${lat}&lon=${lon}`)
+                const response = await fetch(`http://localhost:3000/weather/position?lat=${lat}&lon=${lon}`)
 
                 if(!response.ok){
                     console.log(`Status: ${response.status}`)

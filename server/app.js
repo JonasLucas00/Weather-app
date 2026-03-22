@@ -1,7 +1,6 @@
 import express, { urlencoded } from 'express';
 const app = express();
-import testRou from './src/routes/testRou.js';
-import weatherRouter from './src/routes/weatherRouter.js'
+import weatherRoutes from './src/routes/weatherRoutes.js'
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -15,8 +14,8 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use('/', testRou);
-app.use('/weather', weatherRouter );
+
+app.use('/weather', weatherRoutes );
 
 
 app.listen(3000, () => {
