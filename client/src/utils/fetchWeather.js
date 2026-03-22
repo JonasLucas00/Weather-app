@@ -1,12 +1,12 @@
 async function getData(city){
-    const testPhrase = 'Hello there'
-    // if(!city){
-    //     alert('Fill in the fild')
-    //     return
-    // }
+    
+    if(!city){
+        alert('Fill in the fild')
+        return
+    }
 
     try {
-        const response = await fetch(`http://localhost:3000/weather/search?phrase=${testPhrase}`)
+        const response = await fetch(`http://localhost:3000/weather/search?city=${city}`)
 
         if(!response.ok){
             console.log(`Res STATUS: ${response.status}`)
@@ -15,7 +15,7 @@ async function getData(city){
 
         const data =  await response.json()
         console.log(data);
-        return
+        return data
     } catch (error) {
         console.log(`Error: ${error}`)
         return

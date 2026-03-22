@@ -42,7 +42,7 @@ function UserPosition({setUserPosition}) {
                     return
                 }
                 const data = await response.json()
-                console.log(data)
+                // console.log(data)
                 setUserPosition(data)
                 return
             } catch (error) {

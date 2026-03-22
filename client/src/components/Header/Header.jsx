@@ -4,7 +4,7 @@ import headBG from "../../utils/headerBgColor.js"
 import SearchInput from "../Header/SearchInput.jsx"
 
 
-function Header({userPosition}) {
+function Header({userPosition, setData}) {
     const [headColorGrad, setHeadColorGrad] = useState("linear-gradient(135deg, #133ba8, #0e7eb3)") 
     
 
@@ -18,7 +18,7 @@ function Header({userPosition}) {
     
     
     return (<header className="fixed top-0 left-0 w-full z-50 mb-4">
-            <div className={`flex border-b border-white/10 justify-between p-4 items-center m-4 rounded-xl text-white `}
+            <div className={`flex border-b border-white/10 justify-between p-4 items-center m-4 rounded-xl text-white shadow-2xl`}
                         style={{background: headColorGrad}}
                     >
 
@@ -35,7 +35,9 @@ function Header({userPosition}) {
                 }
 
                     <div className="flex flex-col items-center">
-                        <SearchInput/>
+                        <SearchInput setData = {setData}/>
+                        
+                        
                         
                         {userPosition &&
                             
@@ -45,7 +47,11 @@ function Header({userPosition}) {
                             />
                         }
                     </div>
+
+                    
             </div>
+
+            
     </header>
     
     )

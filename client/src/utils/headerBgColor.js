@@ -12,8 +12,8 @@ function headBG(condition){
             Fog:          "linear-gradient(135deg, #78909c, #90a4ae, #b0bec5)",
             Haze:         "linear-gradient(135deg, #92400e, #b45309, #d97706)",
         };
-        console.log(gradients[condition])
-        console.log(condition)
+        // console.log(gradients[condition])
+        // console.log(condition)
         return gradients[condition] || defaultGradient
 }
 
