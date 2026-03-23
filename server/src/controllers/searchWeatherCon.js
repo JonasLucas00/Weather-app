@@ -5,7 +5,7 @@ async function searchWeather(req,res){
     const {city} = req.query
     console.log(city)
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_KEY}`)
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_KEY}&units=metric`)
         
         if(!response.ok){
             console.log(`Response Error: ${response.status}`)
