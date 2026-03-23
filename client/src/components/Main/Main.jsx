@@ -1,14 +1,21 @@
-import headerBgColor from "../../utils/headerBgColor.js"
 import Cards1 from "./Cards1.jsx"
+import Wind from "./Wind.jsx"
+
 function Main({data, userposition}){
-    console.log(userposition)
+    // console.log(userposition)
+    if(data) console.log(data)
 
     const userPositionWeather = userposition ? userposition : null
-    console.log(userPositionWeather)
+    // console.log(userPositionWeather)
 
-    return(<div className="flex flex-col items-center justify-center">
+    return(
+    <div className="flex flex-col items-center justify-center">
         {userPositionWeather &&
-            <Cards1 userPositionWeather={userPositionWeather}/>
+            <>
+                <Cards1 userPositionWeather={userPositionWeather}/>
+                <Wind userPositionWeather = {userPositionWeather}/>
+            </>
+            
         
         }
     </div>)
