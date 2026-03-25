@@ -3,7 +3,7 @@ import Wind from "./Wind.jsx"
 
 function Main({data, userposition}){
     // console.log(userposition)
-    if(data) console.log(data)
+    // if(data) console.log(data)
 
     const userPositionWeather = userposition ? userposition : null
     // console.log(userPositionWeather)
@@ -12,8 +12,8 @@ function Main({data, userposition}){
     <div className="flex flex-col items-center justify-center">
         {userPositionWeather &&
             <>
-                <Cards1 userPositionWeather={userPositionWeather}/>
-                <Wind userPositionWeather = {userPositionWeather}/>
+                <Cards1 userPositionWeather={userPositionWeather} searchData = {data}/>
+                <Wind userPositionWeather = {userPositionWeather} searchData = {data}/>
             </>
             
         

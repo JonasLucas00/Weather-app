@@ -1,8 +1,9 @@
 import windCalc from "../../utils/windCalc"
 
-function Wind({userPositionWeather}){
+function Wind({userPositionWeather, searchData}){
     
-    const windData = windCalc(userPositionWeather)
+    const windData = windCalc(searchData ? searchData : userPositionWeather)
+    
     // console.log(windData) 
     return(
         <div className=" flex flex-col text-white w-full justify-around rounded-lg border border-slate-700 mt-4 p-2  "
@@ -22,7 +23,7 @@ function Wind({userPositionWeather}){
                 <p>0</p>
                 <p>20</p>
                 <p>40</p>
-                <p>60</p>
+                <p>50</p>
             </div>
         </div>
     )

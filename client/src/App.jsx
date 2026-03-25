@@ -13,7 +13,7 @@ function App() {
     <div className='flex flex-col min-h-screen bg-gradient-to-b from-white to-sky-300 pt-40 mt'
           style={{background: '#0c1a2e'}}
     >
-      <Header userPosition = {userPosition} setData={setData}/>
+      <Header userPosition = {userPosition} setData={setData} data={data}/>
       <UserPosition setUserPosition = {setUserPosition}/>
         <div className='flex flex-col p-2 mt-4' >
           <Main data={data} userposition={userPosition}/>

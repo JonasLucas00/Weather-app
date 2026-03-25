@@ -4,17 +4,19 @@ import headBG from "../../utils/headerBgColor.js"
 import SearchInput from "../Header/SearchInput.jsx"
 
 
-function Header({userPosition, setData}) {
+function Header({userPosition, setData, data}) {
     const [headColorGrad, setHeadColorGrad] = useState("linear-gradient(135deg, #133ba8, #0e7eb3)") 
+    const whereWeather = data ? data : userPosition
+    console.log(`Header whereData`,whereWeather)
     
 
     useEffect(()=>{
-        if(userPosition){
-            let headColor = headBG(userPosition.weather[0].main)
+        if(whereWeather){
+            let headColor = headBG(whereWeather.weather[0].main)
             setHeadColorGrad(headColor)
             
         }
-    },[userPosition])
+    },[userPosition,data])
     
     
     return (<header className="fixed top-0 left-0 w-full z-50 mb-4">
@@ -22,11 +24,11 @@ function Header({userPosition, setData}) {
                         style={{background: headColorGrad}}
                     >
 
-                {userPosition?
+                {whereWeather?
                     <div className="text-slate-200">
-                        <p className="text-xl">{userPosition.name}</p>
-                        <p className="text-3xl font-semibold">{userPosition.main.temp.toFixed()}°</p>
-                        <p className="">{userPosition.weather[0].description}</p>
+                        <p className="text-xl">{whereWeather.name}</p>
+                        <p className="text-3xl font-semibold">{whereWeather.main.temp.toFixed()}°</p>
+                        <p className="">{whereWeather.weather[0].description}</p>
 
                     </div>
                     
@@ -39,9 +41,9 @@ function Header({userPosition, setData}) {
                         
                         
                         
-                        {userPosition &&
+                        {whereWeather &&
                             
-                            <img src={`https://openweathermap.org/img/wn/${userPosition.weather[0].icon}@2x.png`}
+                            <img src={`https://openweathermap.org/img/wn/${whereWeather.weather[0].icon}@2x.png`}
                                 alt="weather icon" 
                                 className="w-20 h-20 ml-[150px]"
                             />
