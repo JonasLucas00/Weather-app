@@ -7,7 +7,7 @@ import SearchInput from "../Header/SearchInput.jsx"
 function Header({userPosition, setData, data}) {
     const [headColorGrad, setHeadColorGrad] = useState("linear-gradient(135deg, #133ba8, #0e7eb3)") 
     const whereWeather = data ? data : userPosition
-    console.log(`Header whereData`,whereWeather)
+    // console.log(`Header whereData`, whereWeather)
     
 
     useEffect(()=>{

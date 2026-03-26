@@ -1,5 +1,7 @@
 import Cards1 from "./Cards1.jsx"
 import Wind from "./Wind.jsx"
+import UV from "./UV.jsx"
+
 
 function Main({data, userposition}){
     // console.log(userposition)
@@ -14,6 +16,7 @@ function Main({data, userposition}){
             <>
                 <Cards1 userPositionWeather={userPositionWeather} searchData = {data}/>
                 <Wind userPositionWeather = {userPositionWeather} searchData = {data}/>
+                <UV userPositionWeather = {userPositionWeather}/>
             </>
             
         
