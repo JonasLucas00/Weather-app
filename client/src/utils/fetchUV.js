@@ -1,6 +1,6 @@
-async function getUv(userPositionWeather, setUv){
-    const {lat, lon} = userPositionWeather.coord
-    // console.log(`fetchUv lat lon: `, lat,lon)
+async function getUv(whichUvData, setUv){
+    // console.log(`Which data `, whichUvData)
+    const {lat, lon} = whichUvData.coord
     try {
         const response = await fetch(`http://localhost:3000/weather/uv?lat=${lat}&lon=${lon}`)
 
@@ -9,7 +9,7 @@ async function getUv(userPositionWeather, setUv){
             return
         }
         const data = await response.json()
-        console.log(`fetch UV`, data)
+        // console.log(`fetch UV`, data)
         setUv(data)
         return data
     } catch (error) {

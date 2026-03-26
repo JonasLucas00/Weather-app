@@ -1,4 +1,5 @@
 function uvCalc(uv, setUvData){
+    console.log('Uv calc',uv)
     const data = uv ? uv.current.uv_index : false
 
     if(data == null){

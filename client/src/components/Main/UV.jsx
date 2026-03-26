@@ -2,24 +2,27 @@ import { useState, useEffect } from "react";
 import getUv from "../../utils/fetchUV";
 import uvCalc from "../../utils/uvCalc";
 
-function UV ({userPositionWeather}){
+function UV ({userPositionWeather,data}){
     //This is feched data getUv()
     const [uv, setUv] = useState(null)
     //That's the data used in the uvCalc(), returns an object {level: 'low', spf:'opcional'}
     const [uvData, setUvData] = useState(null)
+    const whichUvData = data ? data : userPositionWeather
+    console.log(`wich data`,whichUvData)
     
-    
+    //Fetch the UV data from the server
     useEffect(()=>{
         async function fetchUv() {
-            await getUv(userPositionWeather,setUv)
+            await getUv(whichUvData,setUv)
         }
         fetchUv()
         
         
-    }, [userPositionWeather])
-    console.log('Uv Component',uv)
-
+    }, [userPositionWeather, data])
+    
+    // Returns the UV data to be displayed
     useEffect(()=>{
+        console.log('aqui')
         if(uv !== null){
             uvCalc(uv, setUvData)
         }
@@ -31,12 +34,10 @@ function UV ({userPositionWeather}){
             style={{background: "rgba(255, 255, 255, 0.06)"}}
         >
             
-            <h1 className="p-2">UV indice</h1>
+            <h1 className="p-2">UV index</h1>
 
             <div className="flex gap-2 items-center">
                 
-                {/* Isso funciona? */}
-                {/* <p className="bg-orange-400 p-2 m-2 00 text-slate-900 rounded-lg">{uvData ? uvData.current_units.uv_index : 'Valor UV'}</p> */}
 
                 {uv && uvData &&
                 
@@ -47,7 +48,7 @@ function UV ({userPositionWeather}){
                 
                     <div className="flex flex-col justify-center items-left">
                         <p className="font-bold">{uvData.level}</p>
-                        <p className="text-sm">{uvData.spf}</p>
+                        <p className="text-sm">Use sunscreen SPF {uvData.spf}</p>
                     </div> 
 
                 }

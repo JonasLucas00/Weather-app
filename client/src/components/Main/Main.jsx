@@ -16,7 +16,7 @@ function Main({data, userposition}){
             <>
                 <Cards1 userPositionWeather={userPositionWeather} searchData = {data}/>
                 <Wind userPositionWeather = {userPositionWeather} searchData = {data}/>
-                <UV userPositionWeather = {userPositionWeather}/>
+                <UV userPositionWeather = {userPositionWeather} data={data}/>
             </>
             
         
