@@ -8,7 +8,7 @@ function UV ({userPositionWeather,data}){
     //That's the data used in the uvCalc(), returns an object {level: 'low', spf:'opcional'}
     const [uvData, setUvData] = useState(null)
     const whichUvData = data ? data : userPositionWeather
-    console.log(`wich data`,whichUvData)
+    
     
     //Fetch the UV data from the server
     useEffect(()=>{
@@ -22,7 +22,7 @@ function UV ({userPositionWeather,data}){
     
     // Returns the UV data to be displayed
     useEffect(()=>{
-        console.log('aqui')
+        
         if(uv !== null){
             uvCalc(uv, setUvData)
         }
@@ -30,7 +30,7 @@ function UV ({userPositionWeather,data}){
     },[uv])
     
     return(
-        <div className="text-slate-300 w-full p-2 m-2 rounded-lg flex flex-col justify-center border border-slate-700"
+        <div className="text-slate-300 w-full p-2 my-4 rounded-lg flex flex-col justify-center border border-slate-700"
             style={{background: "rgba(255, 255, 255, 0.06)"}}
         >
             
