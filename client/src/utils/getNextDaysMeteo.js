@@ -10,8 +10,7 @@ async function getNextDaysMeteo(lat,lon){
         }
         const data = await response.json()
         console.log('feched getNextDaysMeteo: ', data)
-        
-        return
+        return data
     } catch (error) {
         console.log('htpp error at getForecast:', error)
         return

@@ -4,19 +4,78 @@ import { useState, useEffect } from 'react'
 
 export function NextDays({userPositionWeather, searchData}){
     const data = searchData ? searchData : userPositionWeather
-    // console.log(`NextDays: `, data)
+    const [fiveDays, setFiveDays] = useState(null)
     const {lat,lon} = data.coord
-    // console.log(lat,lon)
+    
 
     useEffect(()=>{
 
-        if(data) getNextDayMeteo(lat,lon)
+        if(!data) return
+
+        async function fetch() {
+            const result = await getNextDayMeteo(lat,lon)
+            console.log('fiveDays', result)
+            setFiveDays(result)
+        }
+        fetch()
         
     },[data])
 
     return(
-        <div className="text-white">
-            NextDays
+        <div className="text-white w-full p-2 m-2 rounded-lg border border-slate-700 justify-center"
+            style={{background:"rgba(255, 255, 255, 0.06)"}}
+        >
+            <div className="flex justify-between w-full">
+                <h1  className="text-xl">Next 5 days</h1>
+                <div className='flex text-lg'>
+                    <h1  className="mx-2">max</h1>
+                    <h1  className="mx-2">min</h1>
+                </div>
+
+            </div>
+
+            { fiveDays &&
+                (fiveDays.daily.time).map((date, i)=>{
+                    const [year, month, day] = date.split("-")
+                    const formatDate =  new Date(year, month - 1, day).toLocaleDateString("pt-BR",{
+                        weekday: "short",
+                        // day: "2-digit"
+                    }).replace('.','')
+                    
+                    const max = fiveDays.daily.temperature_2m_max[i].toFixed()
+                    const min = fiveDays.daily.temperature_2m_min[i].toFixed()
+                    return(
+                        <>
+
+                            <div key={i} 
+                                className='flex justify-between w-full '>
+                                 <div className="flex flex-col mt-4">
+                                     <p>{formatDate}</p>
+                                 </div>
+                                     
+
+                                 <div className="flex mt-4 gap-2">
+                                     <p className="mx-2">{max}°</p>
+                                     
+                                     <p className="mx-2 text-slate-400">{min}°</p>
+                                 </div>
+                                
+                            </div>
+
+                            {i !== fiveDays.daily.time.length - 1 && (
+                                <div className="w-full h-[1px] bg-white/10"></div>
+                            )}
+                            
+                        </>
+                    )
+                })
+
+
+            
+
+
+            }
+            
         </div>
     )
 }

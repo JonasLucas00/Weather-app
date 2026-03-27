@@ -39,7 +39,7 @@ function Forecast({userPositionWeather, searchData}){
 
                         <div key={e.dt} 
                             className='flex flex-col p-2 m-2 items-center rounded-lg border border-slate-600'
-                            style={{background:"rgba(255, 255, 255, 0.07)"}}
+                            style={{background:"rgba(255, 255, 255, 0.11)"}}
                         >
                             <h2 className="text-sm mb-[-18px]">{hour}</h2>
                             <img src={`https://openweathermap.org/img/wn/${e.weather[0].icon}@2x.png`} alt="forecast-img"  className="w-20" />
