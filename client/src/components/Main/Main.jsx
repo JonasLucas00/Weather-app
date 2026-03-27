@@ -2,6 +2,7 @@ import Cards1 from "./Cards1.jsx"
 import Wind from "./Wind.jsx"
 import UV from "./UV.jsx"
 import Forecast from "./Forecast.jsx"
+import { NextDays } from "./NextDays.jsx"
 
 function Main({data, userposition}){
     // console.log(userposition)
@@ -18,6 +19,7 @@ function Main({data, userposition}){
                 <Wind userPositionWeather = {userPositionWeather} searchData = {data}/>
                 <UV userPositionWeather = {userPositionWeather} data={data}/>
                 <Forecast userPositionWeather = {userPositionWeather} searchData={data}/>
+                <NextDays userPositionWeather = {userPositionWeather} searchData={data}/>
             </>
             
         

@@ -5,7 +5,7 @@ function Forecast({userPositionWeather, searchData}){
     const data = searchData ? searchData : userPositionWeather
     //API returned data
     const [forecastData, setForecastData] = useState(null)
-    console.log(`Forecast 1`, data)
+    // console.log(`Forecast 1`, data)
 
     useEffect(()=>{
 
