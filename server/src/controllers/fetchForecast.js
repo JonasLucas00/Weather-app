@@ -3,7 +3,6 @@ dotenv.config()
 
 async function fetchForecast(req,res){
     const {lat,lon} = req.query
-    // console.log(`fetch forecast 3`)
     
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_KEY}&units=metric`)
@@ -14,7 +13,7 @@ async function fetchForecast(req,res){
             return
         }
         const fetchedData = await response.json()
-        // console.log(fetchedData)
+    
         return res.json(fetchedData)
 
     } catch (error) {
