@@ -1,12 +1,10 @@
 function uvCalc(uv, setUvData){
-    // console.log('Uv calc',uv)
     const data = uv ? uv.current.uv_index : false
 
     if(data == null){
         console.log(`no uv data to calculate`)
         return
     }
-    // console.log('Uv calc',data)
 
     if(data <= 2 ){ 
         return setUvData({level: 'low', spf:'opcional'}) 

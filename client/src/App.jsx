@@ -2,10 +2,10 @@ import './App.css'
 import Header from './components/Header/Header.jsx'
 import UserPosition from './components/Header/UserPosition.jsx'
 import Main from './components/Main/Main.jsx'
+import FooterMain from './components/Footer/FooterMain.jsx'
 import { useState } from 'react'
 
 function App() {
-  const [weather, setWeather] = useState(null)
   const [userPosition, setUserPosition] = useState('')
   const [data, setData] = useState(null)
   
@@ -17,7 +17,7 @@ function App() {
       <UserPosition setUserPosition = {setUserPosition}/>
         <div className='flex flex-col p-2 mt-4' >
           <Main data={data} userposition={userPosition}/>
-        
+        <FooterMain/>
         
         </div>
 

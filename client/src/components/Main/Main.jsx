@@ -5,11 +5,8 @@ import Forecast from "./Forecast.jsx"
 import { NextDays } from "./NextDays.jsx"
 
 function Main({data, userposition}){
-    // console.log(userposition)
-    // if(data) console.log(data)
 
     const userPositionWeather = userposition ? userposition : null
-    // console.log(userPositionWeather)
 
     return(
     <div className="flex flex-col items-center justify-center">

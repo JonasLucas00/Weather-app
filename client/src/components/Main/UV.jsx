@@ -30,13 +30,13 @@ function UV ({userPositionWeather,data}){
     },[uv])
     
     return(
-        <div className="text-slate-300 w-full p-2 my-4 rounded-lg flex flex-col justify-center border border-slate-700"
+        <div className="text-slate-300 w-full p-2 my-4 rounded-lg flex flex-col justify-center border border-slate-700 roboto-condensed"
             style={{background: "rgba(255, 255, 255, 0.06)"}}
         >
             
             <h1 className="p-2">UV index</h1>
 
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center ">
                 
 
                 {uv && uvData &&

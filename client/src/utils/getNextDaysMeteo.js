@@ -1,6 +1,6 @@
 async function getNextDaysMeteo(lat,lon){
      
-    // console.log('getNextDaysMeteo 2',lat,lon)
+    
     try {
         const response = await fetch(`http://localhost:3000/weather/days?lat=${lat}&lon=${lon}`)
 
@@ -9,7 +9,7 @@ async function getNextDaysMeteo(lat,lon){
             return
         }
         const data = await response.json()
-        console.log('feched getNextDaysMeteo: ', data)
+        
         return data
     } catch (error) {
         console.log('htpp error at getForecast:', error)

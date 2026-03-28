@@ -4,9 +4,8 @@ function Wind({userPositionWeather, searchData}){
     
     const windData = windCalc(searchData ? searchData : userPositionWeather)
     
-    // console.log(windData) 
     return(
-        <div className=" flex flex-col text-white w-full justify-around rounded-lg border border-slate-700 mt-4 p-2  "
+        <div className=" flex flex-col text-white w-full justify-around rounded-lg border border-slate-700 mt-4 p-2  roboto-condensed"
             style={{background: "rgba(255, 255, 255, 0.06)"}}
         >
             <p className="text-slate-300">Wind</p>

@@ -11,7 +11,7 @@ function Forecast({userPositionWeather, searchData}){
 
         async function fetch() {
             await getForecast(data, setForecastData)
-            // console.log('console useEffect', forecastData)
+            
         }
 
         if(data) fetch()
@@ -20,14 +20,14 @@ function Forecast({userPositionWeather, searchData}){
     },[data])
 
     return(
-        <div className="w-full border border-slate-700 p-2 m-2 rounded-lg text-slate-400"
+        <div className="w-full border border-slate-700 p-2 m-2 rounded-lg text-slate-400 roboto-condensed"
             style={{background:"rgba(255, 255, 255, 0.06)"}}
         >
-            <h1>Next hours</h1>
+            <h1 className="font-bold text-slate-300">Next hours</h1>
 
         {forecastData &&
         
-            <div className='flex justify-left'>
+            <div className='flex justify-start  '>
                 {forecastData.list.slice(0, 6).map((e,i)=>{
                     const hour = i === 0 ? 'Now' : new Date(e.dt * 1000).toLocaleTimeString("pt-BR",{
                         hour: "2-digit",
@@ -38,7 +38,7 @@ function Forecast({userPositionWeather, searchData}){
                     return(
 
                         <div key={e.dt} 
-                            className='flex flex-col p-2 m-2 items-center rounded-lg border border-slate-600'
+                            className='flex flex-col p-2 m-2 items-center rounded-lg border border-slate-600 hover:-translate-y-1 transition-transform duaration-200'
                             style={{background:"rgba(255, 255, 255, 0.11)"}}
                         >
                             <h2 className="text-sm mb-[-18px]">{hour}</h2>

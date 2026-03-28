@@ -7,7 +7,7 @@ import SearchInput from "../Header/SearchInput.jsx"
 function Header({userPosition, setData, data}) {
     const [headColorGrad, setHeadColorGrad] = useState("linear-gradient(135deg, #133ba8, #0e7eb3)") 
     const whereWeather = data ? data : userPosition
-    // console.log(`Header whereData`, whereWeather)
+    
     
 
     useEffect(()=>{
@@ -19,15 +19,15 @@ function Header({userPosition, setData, data}) {
     },[userPosition,data])
     
     
-    return (<header className="fixed top-0 left-0 w-full z-50 mb-4">
-            <div className={`flex border-b border-white/10 justify-between p-4 items-center m-4 rounded-xl text-white shadow-2xl`}
+    return (<header className="fixed top-0 left-0 w-full z-50 mb-4 roboto-condensed">
+            <div className={`flex border-b border-white/10 justify-between p-4 items-center rounded-b-sm text-white shadow-2xl`}
                         style={{background: headColorGrad}}
                     >
 
                 {whereWeather?
                     <div className="text-slate-200">
                         <p className="text-xl">{whereWeather.name}</p>
-                        <p className="text-3xl font-semibold">{whereWeather.main.temp.toFixed()}°</p>
+                        <p className="text-6xl font-semibold">{whereWeather.main.temp.toFixed()}°</p>
                         <p className="">{whereWeather.weather[0].description}</p>
 
                     </div>

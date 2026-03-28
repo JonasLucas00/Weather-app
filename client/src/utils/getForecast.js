@@ -1,6 +1,6 @@
 async function getForecast(data, setForecastData){
     const {lat, lon} = data.coord
-    // console.log('getForecast 2',lat,lon)
+    
     try {
         const response = await fetch(`http://localhost:3000/weather/forecast?lat=${lat}&lon=${lon}`)
 
@@ -9,7 +9,7 @@ async function getForecast(data, setForecastData){
             return
         }
         const fetchedData = await response.json()
-        // console.log('feched forecast: ', fetchedData)
+        
         setForecastData(fetchedData)
         return
     } catch (error) {

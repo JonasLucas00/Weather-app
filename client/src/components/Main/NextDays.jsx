@@ -14,7 +14,6 @@ export function NextDays({userPositionWeather, searchData}){
 
         async function fetch() {
             const result = await getNextDayMeteo(lat,lon)
-            console.log('fiveDays', result)
             setFiveDays(result)
         }
         fetch()
@@ -22,7 +21,7 @@ export function NextDays({userPositionWeather, searchData}){
     },[data])
 
     return(
-        <div className="text-white w-full p-2 m-2 rounded-lg border border-slate-700 justify-center"
+        <div className="text-white w-full p-2 m-2 rounded-lg border border-slate-700 justify-center roboto-condensed"
             style={{background:"rgba(255, 255, 255, 0.06)"}}
         >
             <div className="flex justify-between w-full">
@@ -39,7 +38,6 @@ export function NextDays({userPositionWeather, searchData}){
                     const [year, month, day] = date.split("-")
                     const formatDate =  new Date(year, month - 1, day).toLocaleDateString("pt-BR",{
                         weekday: "short",
-                        // day: "2-digit"
                     }).replace('.','')
                     
                     const max = fiveDays.daily.temperature_2m_max[i].toFixed()
@@ -48,7 +46,7 @@ export function NextDays({userPositionWeather, searchData}){
                         <>
 
                             <div key={i} 
-                                className='flex justify-between w-full '>
+                                className='flex justify-between w-full hover:-translate-y-1 transition-transform duaration-200'>
                                  <div className="flex flex-col mt-4">
                                      <p>{formatDate}</p>
                                  </div>
@@ -63,7 +61,7 @@ export function NextDays({userPositionWeather, searchData}){
                             </div>
 
                             {i !== fiveDays.daily.time.length - 1 && (
-                                <div className="w-full h-[1px] bg-white/10"></div>
+                                <div  className="w-full h-[1px] bg-white/10"></div>
                             )}
                             
                         </>

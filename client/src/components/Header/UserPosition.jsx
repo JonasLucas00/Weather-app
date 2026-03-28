@@ -8,7 +8,7 @@ function UserPosition({setUserPosition}) {
            lat = position.coords.latitude;
            lon = position.coords.longitude;
 
-            // console.log(lat,lon)
+            
             positionWeather(lat,lon)
             },
             (error) =>{
@@ -33,7 +33,7 @@ function UserPosition({setUserPosition}) {
         )   
 
         async function positionWeather(lat,lon) {
-            // console.log(lat,lon)
+            
             try {
                 const response = await fetch(`http://localhost:3000/weather/position?lat=${lat}&lon=${lon}`)
 
@@ -42,7 +42,7 @@ function UserPosition({setUserPosition}) {
                     return
                 }
                 const data = await response.json()
-                // console.log(data)
+                
                 setUserPosition(data)
                 return
             } catch (error) {
