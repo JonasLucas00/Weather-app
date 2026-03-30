@@ -86,7 +86,7 @@ cp .env.example .env
 Fill in your `.env`:
 
 ```env
-OPENWEATHER_API_KEY=your_api_key_here
+WEATHER_KEY=your_api_key_here
 ```
 
 Start the server:
@@ -133,7 +133,8 @@ The app will be available at `http://localhost:5173`.
 | Variable | Description |
 |----------|-------------|
 | `PORT` | Port for the Express server (default: 3000) |
-| `OPENWEATHER_API_KEY` | Your OpenWeatherMap API key |
+| `WEATHER_KEY` | Your OpenWeatherMap API key |
+| `ALLOWED_ORIGIN` | Your allowed origin |
 
 ### Frontend (`client/.env`)
 
