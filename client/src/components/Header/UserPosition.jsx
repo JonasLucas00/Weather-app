@@ -12,20 +12,16 @@ function UserPosition({setUserPosition}) {
             positionWeather(lat,lon)
             },
             (error) =>{
-                console.log("UserPosition Error:", error);
-
+                console.error('Geolocation error:', error.code);
                 if (error.code === 1) {
-                    console.log("Usuário negou a localização");
                     return
                 }
 
                 if (error.code === 2) {
-                    console.log("Localização indisponível");
                     return
                 }
 
                 if (error.code === 3) {
-                    console.log("Tempo esgotado");
                     return
                 }
             }
@@ -38,7 +34,7 @@ function UserPosition({setUserPosition}) {
                 const response = await fetch(`http://localhost:3000/weather/position?lat=${lat}&lon=${lon}`)
 
                 if(!response.ok){
-                    console.log(`Status: ${response.status}`)
+                    console.error('Failed to fetch position weather:', response.status);
                     return
                 }
                 const data = await response.json()
@@ -46,7 +42,7 @@ function UserPosition({setUserPosition}) {
                 setUserPosition(data)
                 return
             } catch (error) {
-                console.log(`HTTP error: ${error}`)
+                console.error('Position weather fetch error:', error.message);
                 return
             }
         }

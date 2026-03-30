@@ -5,7 +5,7 @@ async function getForecast(data, setForecastData){
         const response = await fetch(`http://localhost:3000/weather/forecast?lat=${lat}&lon=${lon}`)
 
         if(!response.ok){
-            console.log('response error at getForecast:', response.status)
+            console.error('Failed to fetch forecast:', response.status);
             return
         }
         const fetchedData = await response.json()
@@ -13,7 +13,7 @@ async function getForecast(data, setForecastData){
         setForecastData(fetchedData)
         return
     } catch (error) {
-        console.log('htpp error at getForecast:', error)
+        console.error('Forecast fetch error:', error.message);
         return
     }
 }

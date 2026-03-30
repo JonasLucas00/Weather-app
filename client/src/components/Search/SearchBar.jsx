@@ -8,7 +8,7 @@ export default function SearchBar({setWeather}){
             try {
                 
                 if(!city){
-                    console.log('Fill in all fields')
+                    console.error('Please enter a city name');
                     return
 
                 } 
@@ -16,16 +16,15 @@ export default function SearchBar({setWeather}){
             
                 const response = await fetch(`http://localhost:3000/weather?city=${city}`)
                 if(!response.ok){
-                    console.log(`Response ERRor: ${response.status}`)
+                    console.error('Failed to fetch weather:', response.status);
                     return
                 }
     
                 const data = await response.json()
-                console.log(data)
                 setWeather(data)
     
             } catch (error) {
-                console.log(`HTTP ERRor ${error}`)
+                console.error('Search error:', error.message);
                 return
             }
         }
@@ -50,7 +49,6 @@ export default function SearchBar({setWeather}){
                 <button
                     className="px-6 m-2 bg-sky-500 text-white hover:bg-sky-400 transition duration-200 cursor-pointer rounded-lg shadow-md"
                     onClick={()=>{
-                        console.log(city)
                         fetchData()
                     }}
                 >Search

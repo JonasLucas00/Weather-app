@@ -5,7 +5,7 @@ async function getData(city){
         const response = await fetch(`http://localhost:3000/weather/search?city=${city}`)
 
         if(!response.ok){
-            console.log(`Res STATUS: ${response.status}`)
+            console.error('Failed to fetch weather data:', response.status);
             return
         }
 
@@ -13,7 +13,7 @@ async function getData(city){
     
         return data
     } catch (error) {
-        console.log(`Error: ${error}`)
+        console.error('Weather fetch error:', error.message);
         return
     }
 }

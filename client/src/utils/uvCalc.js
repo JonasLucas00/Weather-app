@@ -2,7 +2,7 @@ function uvCalc(uv, setUvData){
     const data = uv ? uv.current.uv_index : false
 
     if(data == null){
-        console.log(`no uv data to calculate`)
+        console.error('No UV data available to calculate');
         return
     }
 
