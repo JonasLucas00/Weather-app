@@ -9,9 +9,8 @@
 
 A full-stack weather application that delivers real-time weather data, UV index monitoring, and hourly forecasts for any location worldwide.
 
-🔗 **[Live Demo](https://weather-app-ten-xi-79.vercel.app/)**
+## 🔗 **[Live Demo](https://weather-app-ten-xi-79.vercel.app/)**
 
-![app screenshot](...)
 
 ![app screenshot](./server/assets/Captura%20de%20tela%20de%202026-03-28%2001-47-37.png)
 
