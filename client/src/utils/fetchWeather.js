@@ -2,7 +2,7 @@ async function getData(city){
     
 
     try {
-        const response = await fetch(`http://localhost:3000/weather/search?city=${city}`)
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/weather/search?city=${city}`)
 
         if(!response.ok){
             console.error('Failed to fetch weather data:', response.status);

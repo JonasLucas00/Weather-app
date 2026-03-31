@@ -143,8 +143,6 @@ The app will be available at `http://localhost:5173`.
 |----------|-------------|
 | `VITE_API_BASE_URL` | Base URL of the backend server |
 
-> ⚠️ Never commit your `.env` files. They are already listed in `.gitignore`.
-
 ---
 
 ## API Endpoints

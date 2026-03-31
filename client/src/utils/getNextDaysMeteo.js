@@ -2,7 +2,7 @@ async function getNextDaysMeteo(lat,lon){
      
     
     try {
-        const response = await fetch(`http://localhost:3000/weather/days?lat=${lat}&lon=${lon}`)
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/weather/days?lat=${lat}&lon=${lon}`)
 
         if(!response.ok){
             console.error('Failed to fetch next days forecast:', response.status);
