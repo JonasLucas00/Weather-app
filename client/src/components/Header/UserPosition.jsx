@@ -3,25 +3,33 @@ import { useEffect } from "react";
 function UserPosition({setUserPosition}) {
     let lat
     let lon
+    const default_lat = -23.55052
+    const default_lon = -46.633308
+
     useEffect (()=>{
         navigator.geolocation.getCurrentPosition(async (position)=>{
            lat = position.coords.latitude;
            lon = position.coords.longitude;
 
-            
+            console.log('User position:', lat, lon);
             positionWeather(lat,lon)
             },
             (error) =>{
                 console.error('Geolocation error:', error.code);
+                lat = default_lat ;
+                lon = default_lon;
                 if (error.code === 1) {
-                    return
+                    positionWeather(lat,lon)
+                    return 
                 }
 
                 if (error.code === 2) {
+                    positionWeather(lat,lon)
                     return
                 }
 
                 if (error.code === 3) {
+                    positionWeather(lat,lon)
                     return
                 }
             }
